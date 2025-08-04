@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+// middleware.ts
+import { NextRequest, NextResponse } from 'next/server';
+
+export function middleware(request: NextRequest) {
+  return NextResponse.next();
+}
 
 export async function middleware(request: NextRequest) {
   if (!process.env.WP_USER || !process.env.WP_APP_PASS) {
@@ -42,5 +48,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(newUrl, {
       status: redirect.action_code === 301 ? 308 : 307,
     });
+    
   }
 }
