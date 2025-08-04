@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true, // 👈 Enable support for app directory inside /src
+  },
   images: {
     remotePatterns: [
       {
